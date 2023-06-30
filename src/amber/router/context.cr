@@ -61,8 +61,8 @@ class HTTP::Server::Context
     request.url
   end
 
-  def halt!(status_code : Int32 = 200, @content = "")
-    response.headers[CONTENT_TYPE] = "text/plain"
+  def halt!(status_code : Int32 = 200, content_type = "text/plain", @content = "")
+    response.headers[CONTENT_TYPE] = content_type
     response.status_code = status_code
   end
 
